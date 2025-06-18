@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-nalysis: AI Usage in Tertiary Education</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>AI-nalysis</h1>
+        <p class="subtitle">Empowering Students, Informing Educators</p>
+        <nav>
+            <button id="navStudent" class="active">Personal Analyzer</button>
+            <button id="navInstitution">Institutional Dashboard</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Student View: Personal AI Usage Analyzer -->
+        <div id="studentView" class="view active">
+            <h2>Personal AI Usage Analyzer</h2>
+            <p>Answer the questions below to understand your AI usage profile and receive personalized feedback.</p>
+            
+            <form id="analyzerForm">
+                <div class="form-group">
+                    <label for="disciplineSelect">1. What is your academic discipline?</label>
+                    <select id="disciplineSelect" required>
+                        <option value="STEM">STEM (Science, Tech, Engineering, Math)</option>
+                        <option value="Humanities">Humanities & Social Sciences</option>
+                        <option value="Business">Business & Economics</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="frequency">2. How often do you use AI tools for your schoolwork?</label>
+                    <select id="frequency" name="frequency" required>
+                        <option value="1">Rarely (A few times a semester)</option>
+                        <option value="2">Occasionally (A few times a month)</option>
+                        <option value="3">Frequently (A few times a week)</option>
+                        <option value="4">Daily</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>3. What types of tasks do you use AI for? (Check all that apply)</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="task" value="1"> Grammar & spelling checks</label>
+                        <label><input type="checkbox" name="task" value="2"> Rephrasing sentences</label>
+                        <label><input type="checkbox" name="task" value="4"> Summarizing articles</label>
+                        <label><input type="checkbox" name="task" value="6"> Brainstorming ideas</label>
+                        <label><input type="checkbox" name="task" value="8"> Generating drafts or outlines</label>
+                        <label><input type="checkbox" name="task" value="10"> Writing or debugging code</label>
+                    </div>
+                </div>
+                <button type="submit">Analyze My Usage</button>
+            </form>
+
+            <div id="studentResult" class="result-box hidden"></div>
+            
+            <div id="goalSection" class="result-box hidden">
+                <h4>Your Active Goal</h4>
+                <p id="goalText">You have no active goal.</p>
+                <button id="clearGoalButton" class="goal-button hidden" style="background-color: #e74c3c;">Clear Goal</button>
+            
+                <h4 style="margin-top: 25px;">Set a New Goal</h4>
+                <div class="form-group">
+                    <label for="customGoalText">What specific action will you take?</label>
+                    <input type="text" id="customGoalText" placeholder="e.g., I will write my next essay outline without AI.">
+                </div>
+                <div class="form-group">
+                    <label for="goalDate">When do you want to be reminded?</label>
+                    <input type="date" id="goalDate">
+                </div>
+                <button id="saveGoalButton" class="goal-button">Save My Goal</button>
+            </div>
+        </div>
+
+        <!-- Institutional View: Dashboard -->
+        <div id="institutionalView" class="view">
+            <h2>Institutional Dashboard (Live Simulation)</h2>
+            <p>This dashboard reflects <strong id="submissionCount"></strong> real-time submissions from the Personal Analyzer.</p>
+            
+            <div class="dashboard-controls">
+                <div class="form-group">
+                    <label for="dashboardFilter">Filter by Discipline:</label>
+                    <select id="dashboardFilter">
+                        <option value="All">All Disciplines</option>
+                        <option value="STEM">STEM</option>
+                        <option value="Humanities">Humanities</option>
+                        <option value="Business">Business</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-item">
+                    <h3>Distribution of Learner Profiles</h3>
+                    <div class="chart-container"><canvas id="chart1"></canvas></div>
+                </div>
+                <div class="dashboard-item">
+                    <h3>Average Dependency Index by Profile</h3>
+                    <div class="chart-container"><canvas id="chart2"></canvas></div>
+                </div>
+                 <div class="dashboard-item key-insight">
+                    <h3>Automated Key Insight</h3>
+                    <p id="insightText">Select a filter to generate an insight.</p>
+                </div>
+                <div class="dashboard-item framework policy-builder">
+                    <h3>Interactive Guideline Builder</h3>
+                    <form id="policyBuilderForm">
+                        <div class="form-group">
+                            <label for="policyDiscipline">Select Discipline:</label>
+                            <select id="policyDiscipline"><option value="Humanities">Humanities</option><option value="STEM">STEM</option><option value="Business">Business</option></select>
+                        </div>
+                        <div class="form-group">
+                            <label for="strictness">Select Strictness Level:</label>
+                            <select id="strictness"><option value="Permissive">Permissive</option><option value="Balanced">Balanced</option><option value="Strict">Strict</option></select>
+                        </div>
+                        <button type="submit">Generate Policy</button>
+                    </form>
+                    <div id="policyOutput" class="hidden"><h4>Generated AI Policy:</h4><pre></pre></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer><p>AI-nalysis Capstone Prototype | Mondero, Solis, Vergara | 2025</p></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
